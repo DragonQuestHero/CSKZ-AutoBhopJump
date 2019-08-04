@@ -1,0 +1,3 @@
+[submodule "DirectInput"]
+	path = DirectInput
+	url = https://github.com/MeeSong/DirectInput.git
