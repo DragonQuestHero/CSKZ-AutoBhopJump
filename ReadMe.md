@@ -1,7 +1,15 @@
 # CSKZ-AutoBhopJump
 
+## 由于游戏(单指CSOL)的反外挂保护限制了winhook GetAsyncKeyState等获取按键消息
+
+## 同时也屏蔽掉了mouse_move sendinput R3层的消息 所以使用驱动来发送和监听按键消息
+
+## 监听和发送均利用了KeyboardClassServiceCallback 支持win7-win10 详情:http://blog.wonderkun.cc/2019/04/02/Hook%20KeyboardClassServiceCallback%20%E5%AE%9E%E7%8E%B0%E5%86%85%E6%A0%B8%E6%80%81%E6%8C%89%E9%94%AE%E8%AE%B0%E5%BD%95%E5%92%8C%E6%A8%A1%E6%8B%9F/
+
 
 ### BhopJump
+
+#### 支持CS1.6 CSOL(国服 韩服 steam国际服) CSGO
 
 #### 半联动模式:判断当前鼠标位置来判断发送左或右键代码实现空中转向加速 同时不停的发送滚轮跳来实现BJ
 
@@ -39,6 +47,22 @@
 
 <h1 align="center">
 	<img src="AutoBhopJump.gif" alt="">
+	<br>
+	<br>
+</h1>
+
+
+
+### LongJump
+
+#### 默认空中4次加速
+
+#### 265地速直接带你上240的板子
+
+#### 同步率基本是100% 98%同步率一般只有骨灰玩家了
+
+<h1 align="center">
+	<img src="LongJump.gif" alt="">
 	<br>
 	<br>
 </h1>
