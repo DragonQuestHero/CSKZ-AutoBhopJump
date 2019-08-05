@@ -20,6 +20,8 @@ volatile bool jump = false;
 volatile bool mouse = false;
 volatile bool mcj = false;
 volatile bool down = false;
+volatile bool haihuang = false;
+volatile bool haihuang2 = false;
 
 
 struct DATA_IMFOMATION
@@ -374,6 +376,60 @@ void Dance()
 	}
 }
 
+void HaiHuang()
+{
+	while (true)
+	{
+		Sleep(1);
+		if (haihuang && haihuang2)
+		{
+			INPUT Input = { 0 };
+			Input.type = INPUT_MOUSE;
+			Input.mi.dx = 0;
+			Input.mi.dy = 0;
+			Input.mi.mouseData = 0;
+			Input.mi.dwFlags = MOUSEEVENTF_LEFTDOWN;
+			Input.mi.time = 0;
+			Input.mi.dwExtraInfo = 0;
+			DirectInput::SendInput(1, &Input, sizeof(INPUT));
+			Sleep(1);
+
+			Input.type = INPUT_MOUSE;
+			Input.mi.dx = 0;
+			Input.mi.dy = 0;
+			Input.mi.mouseData = 0;
+			Input.mi.dwFlags = MOUSEEVENTF_LEFTUP;
+			Input.mi.time = 0;
+			Input.mi.dwExtraInfo = 0;
+			DirectInput::SendInput(1, &Input, sizeof(INPUT));
+			Sleep(1);
+
+			Input.type = INPUT_MOUSE;
+			Input.mi.dx = 0;
+			Input.mi.dy = 0;
+			Input.mi.mouseData = 0;
+			Input.mi.dwFlags = MOUSEEVENTF_RIGHTDOWN;
+			Input.mi.time = 0;
+			Input.mi.dwExtraInfo = 0;
+			DirectInput::SendInput(1, &Input, sizeof(INPUT));
+			Sleep(1);
+
+			Input.type = INPUT_MOUSE;
+			Input.mi.dx = 0;
+			Input.mi.dy = 0;
+			Input.mi.mouseData = 0;
+			Input.mi.dwFlags = MOUSEEVENTF_RIGHTUP;
+			Input.mi.time = 0;
+			Input.mi.dwExtraInfo = 0;
+			DirectInput::SendInput(1, &Input, sizeof(INPUT));
+			Sleep(1);
+
+			haihuang2 = false;
+		}
+
+
+	}
+}
 
 void Jumper()
 {
@@ -453,10 +509,10 @@ void Start()
 			//	adl = true;
 			//}
 
-			//if (info.key == 57 && info.flag == 0)//speac
-			//{
-			//	longjumpj = true;
-			//}
+			if (info.key == 57 && info.flag == 0)//speac
+			{
+				haihuang2 = true;
+			}
 
 			//if (info.key == 42 && info.flag == 0)//F
 			//{
@@ -481,10 +537,10 @@ void Start()
 				mcj = !mcj;
 			}*/
 
-			//if (info.key == 59 && info.flag == 0)//F1
-			//{
-			//	longjump = true;
-			//}
+			if (info.key == 59 && info.flag == 0)//F1
+			{
+				haihuang = true;
+			}
 			DeviceIoControl(m_hDevice, 0x1234, &info, sizeof(DATA_IMFOMATION),
 				&info, sizeof(DATA_IMFOMATION), &dwRet, &temp_ol); //hook it.
 			break;
@@ -508,6 +564,7 @@ int main()
 	std::thread t44(AtuoMouseR);
 	std::thread t5(MCJ);
 	std::thread t6(LongJump);
+	std::thread t7(HaiHuang);
 	t1.detach();
 	t2.detach();
 	t3.detach();
@@ -515,6 +572,7 @@ int main()
 	t44.detach();
 	t5.detach();
 	t6.detach();
+	t7.detach();
 
 
 	getchar();

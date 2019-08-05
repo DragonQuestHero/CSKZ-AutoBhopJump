@@ -66,3 +66,14 @@
 	<br>
 	<br>
 </h1>
+
+
+### 海皇跳
+
+#### 海皇右键爆炸有延迟 左右一起按又按不出来了 
+
+<h1 align="center">
+	<img src="HaiHuang.gif" alt="">
+	<br>
+	<br>
+</h1>
