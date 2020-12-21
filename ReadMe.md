@@ -1,5 +1,7 @@
 # CSKZ-AutoBhopJump
 
+不提供二进制文件 我不想被封号...
+
 
 ### 由于游戏(单指CSOL)的反外挂保护限制了winhook GetAsyncKeyState等获取按键消息
 
